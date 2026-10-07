@@ -9,13 +9,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build: # El trabajo se puede llamar de cualquier forma
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 21
+    - uses: actions/checkout@v4 # Este paso hace que GitHub Actions descargue/cloné tu repositorio dentro de la máquina virtual.
+    - name: Set up JDK 21 # Se puede llamar de cualquier forma
       uses: actions/setup-java@v4
       with:
         java-version: '21'
@@ -23,7 +23,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       #run: mvn -B package --file pom.xml
-      run: mvn clean install
+      run: mvn clean install # Entre otros se crea el .jar
       
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v6
