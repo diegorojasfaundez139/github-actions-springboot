@@ -15,8 +15,8 @@ public class ApiRestSpringbootApplication {
 	}
 
 	@GetMapping("/saludos")
-	public String saludar2() {
-		return "Comparte este video en tu LinkedIn";
+	public String saludarNuevo() {
+		return "Comparte este video en tu LinkedIn !!";
 	}
 
 	public static void main(String[] args) {
