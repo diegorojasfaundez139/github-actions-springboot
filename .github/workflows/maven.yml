@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4 # Este paso hace que GitHub Actions descargue/cloné tu repositorio dentro de la máquina virtual.
-    - name: Set up JDK 21 # Se puede llamar de cualquier forma
+    - name: Set up JDK 21 # Se puede llamar de cualquier forma. Configurar Java 21
       uses: actions/setup-java@v4
       with:
         java-version: '21'
@@ -25,8 +25,8 @@ jobs:
       #run: mvn -B package --file pom.xml
       run: mvn clean install # Entre otros se crea el .jar
       
-    - name: Build & push Docker image
-      uses: mr-smithers-excellent/docker-build-push@v6
+    - name: Build & push Docker image # Construir una imagen Docker y subirla a un registro de imágenes.
+      uses: mr-smithers-excellent/docker-build-push@v6 # Esta Action recibe la configuración de with y realiza el proceso de construcción y publicación de la imagen
       with:
         image: diegorojasfa/api-springboot-image
         tags: latest
